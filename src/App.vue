@@ -7,28 +7,43 @@
     >
       <div class="d-flex align-center">
         <v-img
-          alt="Vuetify Logo"
+          alt="Vue Logo"
           class="shrink mr-2"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          src="../public/vue.png"
           transition="scale-transition"
           width="40"
         />
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+        <h2 color="primary">
+          VueCrashCourse
+        </h2>
       </div>
 
       <v-spacer></v-spacer>
 
+      <div>
+        <v-tooltip v-if="!$vuetify.theme.dark" bottom>
+          <template v-slot:activator="{ on }">
+            <v-btn v-on="on" color="primary" small fab @click="darkMode">
+              <v-icon class="mr-1">mdi-moon-waxing-crescent</v-icon>
+            </v-btn>
+          </template>
+          <span>Dark Mode On</span>
+        </v-tooltip>
+        <v-tooltip v-else bottom>
+          <template v-slot:activator="{ on }">
+            <v-btn v-on="on" color="primary" small fab @click="darkMode">
+              <v-icon color="yellow">mdi-white-balance-sunny</v-icon>
+            </v-btn>
+          </template>
+          <span>Dark Mode Off</span>
+        </v-tooltip>
+      </div>
+
+
       <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        href="https://github.com/ErlendEllefsen/vueintro"
         target="_blank"
         text
       >
@@ -38,23 +53,55 @@
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
+      <MainPage/>
     </v-main>
+      <v-footer padless>
+    <v-col
+      class="text-center"
+      cols="12"
+    >
+      {{ new Date().getFullYear() }} — <strong>{{ appName }}</strong>
+    </v-col>
+  </v-footer>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import MainPage from './components/MainPage';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    MainPage,
   },
 
-  data: () => ({
-    //
-  }),
+  data(){
+    return{
+      appName : this.$AppName,
+    }
+  },
+  methods: {
+    darkMode() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+    }
+  }
 };
 </script>
+
+<style>
+.code-container{
+  width: 100%;
+  height: 100%;
+  float: right;
+}
+.code-sample{
+  width: 40%;
+  float: left;
+}
+.code-ex{
+  width: 40%;
+  float: left;
+  margin-left: 10%;
+}
+</style>
