@@ -57,7 +57,7 @@
       </v-stepper-step>
       <v-divider></v-divider>
       <v-stepper-step 
-        step="6" 
+        step="7" 
         editable
         class="caption" 
         @click="$router.push({path: '/storage'}).catch(err => {})" 
@@ -123,5 +123,4 @@
 </script>
 <style>
 .no-transition .v-stepper__content  { transition: none !important; }
-
 </style>

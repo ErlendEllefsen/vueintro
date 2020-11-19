@@ -13,7 +13,16 @@ Vue.config.productionTip = false
 
 Vue.prototype.$http = axios
 
+Vue.prototype.$makeUpperCase = function(prop) {
+  this[prop] = this[prop].toUpperCase()
+}
+
+Vue.prototype.$makeLowerCase = function(prop) {
+  this[prop] = this[prop].toLowerCase()
+}
+
 Vue.prototype.$AppName = 'VueCrashCourse'
+Vue.prototype.$Author = 'Erlend Ellefsen'
 
 
 new Vue({

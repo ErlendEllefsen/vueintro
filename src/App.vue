@@ -47,7 +47,7 @@
         target="_blank"
         text
       >
-        <span class="mr-2">Erlend Ellefsen</span>
+        <span class="mr-2">{{ author }}</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
     </v-app-bar>
@@ -60,7 +60,7 @@
       class="text-center"
       cols="12"
     >
-      {{ new Date().getFullYear() }} — <strong>{{ appName }}</strong>
+      {{ new Date().getFullYear() }} — <strong>{{ appName }}</strong> — {{ author }}
     </v-col>
   </v-footer>
   </v-app>
@@ -79,6 +79,7 @@ export default {
   data(){
     return{
       appName : this.$AppName,
+      author: this.$Author
     }
   },
   methods: {

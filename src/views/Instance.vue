@@ -78,13 +78,40 @@ methods: {
           :headers="headers"
           :items="usernames"
           :items-per-page="4"
-          class="elevation-1"
+          class="elevation-1 my-3"
         ></v-data-table>
       </div>
      </div>
     </v-container>
-    <v-container>
-     
+     <v-container class="code-container">
+     <div v-highlight class="code-sample">
+      <pre class="language-javascript">
+        <code>
+/*main.js*/
+Vue.prototype.$makeUpperCase = function(prop) {
+  this[prop] = this[prop].toUpperCase()
+}
+
+Vue.prototype.$makeLowerCase = function(prop) {
+  this[prop] = this[prop].toLowerCase()
+} 
+
+/*Instance.vue*/
+changeUpper: function (event) { 
+  this.$makeUpperCase('prop')
+},
+changeLower: function (event) { 
+  this.$makeLowerCase('prop')
+}</code>
+      </pre>
+     </div>
+     <div class="code-ex">
+       <h1>Metoder</h1>
+      <p class="my-3">Det går også ann å ha globale metoder. Disse kan kalles på over hele instansen. </p>
+       <v-btn class="mr-4" color="success" v-on:click="changeUpper">Upper</v-btn>
+       <v-btn color="error" v-on:click="changeLower">Lower</v-btn>
+       <p class="my-3"> {{prop}} </p>
+     </div>
     </v-container>
   </div>
 </template>
@@ -106,7 +133,8 @@ export default {
           { text: 'E-mail', value: 'email' }
         ],
       usernames : [],
-      eventTagName : ''
+      eventTagName : '',
+      prop : 'Do ut aliqua eu anim elit incididunt adipisicing commodo. Voluptate laborum pariatur aliquip sint anim ullamco veniam qui sint quis sit commodo qui fugiat. Ullamco aliqua fugiat amet commodo ea nisi cillum quis. Deserunt ex exercitation nulla labore ea incididunt cupidatat consectetur eu commodo. Nulla aliquip aute et dolore pariatur nisi.Nisi ex incididunt aliqua ex est sint magna quis deserunt proident. Qui commodo ex officia anim aute aliquip excepteur quis. Officia tempor do exercitation ex aliquip velit quis veniam et enim et dolor aliqua. Est consequat laboris minim dolore aute. Est anim anim proident dolore. Exercitation sit cupidatat exercitation duis deserunt fugiat est.'
     }
   },
   methods: {
@@ -119,6 +147,14 @@ export default {
       if(event){
         this.eventTagName = event.target.tagName
       }
+    },
+    // eslint-disable-next-line no-unused-vars
+    changeUpper: function (event) { 
+      this.$makeUpperCase('prop')
+    },
+    // eslint-disable-next-line no-unused-vars
+    changeLower: function (event) { 
+      this.$makeLowerCase('prop')
     }
   }
 }
