@@ -10,6 +10,7 @@
        <v-btn class="success mr-4" @click="number++">Up</v-btn>
        <v-btn class="warning mr-4" @click="number--">Down</v-btn>
        <v-btn class="error" @click="number=0">Reset</v-btn>
+       <v-btn @click="testfunc">Test</v-btn>
        <h3>{{number}}</h3>
      </div>
      
@@ -30,12 +31,18 @@ export default {
   data () {
     return {
       username: '',
-      number: 0
+      number: 0,
+      test: false
     }
   },
   computed: {
     error () {
       return this.number > 7
+    }
+  },
+  methods: {
+    testfunc(){
+      this.test=true
     }
   }
 }

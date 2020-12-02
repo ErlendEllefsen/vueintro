@@ -35,11 +35,20 @@
         class="caption" 
         @click="$router.push({path: '/form'}).catch(err => {})" 
       >
-      Testing
+      Form Validation
       </v-stepper-step>
       <v-divider></v-divider>
       <v-stepper-step 
         step="5" 
+        editable
+        class="caption" 
+        @click="$router.push({path: '/unit'}).catch(err => {})" 
+      >
+      Unit
+      </v-stepper-step>
+      <v-divider></v-divider>
+      <v-stepper-step 
+        step="6" 
         editable
         class="caption" 
         @click="$router.push({path: '/memory'}).catch(err => {})" 
@@ -48,7 +57,7 @@
       </v-stepper-step>
       <v-divider></v-divider>
       <v-stepper-step 
-        step="6" 
+        step="7" 
         editable
         class="caption" 
         @click="$router.push({path: '/storage'}).catch(err => {})" 
@@ -75,6 +84,9 @@
           <router-view />
         </v-stepper-content>
         <v-stepper-content step="6">
+          <router-view />
+        </v-stepper-content>
+        <v-stepper-content step="7">
           <router-view />
         </v-stepper-content>
       </div>

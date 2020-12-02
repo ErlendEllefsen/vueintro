@@ -63,6 +63,7 @@ export default {
           label="E-post"
         >
         </v-text-field>
+        
         <v-btn
           :disabled="!valid"
           color="primary"
@@ -85,6 +86,10 @@ export default {
         >
           Reset Validation
       </v-btn>
+     
+      <h3>Navn: {{name}}</h3>
+      <h3>Alder: {{number}}</h3>
+      <h3>E-post: {{email}}</h3>
        </v-form>
        </div>
     </v-container>
@@ -110,7 +115,10 @@ export default {
       emailRules: [
         v => !!v || 'Du må skrive inn en e-post',
         v => /.+@.+/.test(v) || 'Skriv inn en gyldig e-post',
-      ]
+      ],
+      name: "",
+      email: "",
+      number: ""
       }),
     methods: {
       validate () {
