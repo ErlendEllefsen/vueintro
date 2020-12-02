@@ -3,7 +3,34 @@
       <v-container class="code-container">
      <div v-highlight class="code-sample">
       <pre class="language-javascript">
-        <code></code>
+        <code>
+export default {
+  data: () => ({
+      valid: true,
+      nameRules: [
+        v => !!v || 'Du må skrive inn navnet ditt',
+        v => (v && v.length ˂= 10) || 'For langt navn!',
+      ],
+      ageRules: [
+        v => (v && v.length ˂= 2) || 'Du er ikke så gammel!',
+      ], 
+      emailRules: [
+        v => !!v || 'Du må skrive inn en e-post',
+        v => /.+@.+/.test(v) || 'Skriv inn en gyldig e-post',
+      ]
+      }),
+    methods: {
+      validate () {
+        this.$refs.form.validate()
+      },
+      reset () {
+        this.$refs.form.reset()
+      },
+      resetValidation () {
+        this.$refs.form.resetValidation()
+      },
+    }
+}</code>
       </pre>
      </div>
      <div class="code-ex">
@@ -21,13 +48,28 @@
           required
         >
         </v-text-field>
+        <v-text-field
+          type="number"
+          v-model="number"
+          :couter="3"
+          :rules="ageRules"
+          label="Alder"
+        >
+        </v-text-field>
+         <v-text-field
+          v-model="email"
+          :couter="20"
+          :rules="emailRules"
+          label="E-post"
+        >
+        </v-text-field>
         <v-btn
           :disabled="!valid"
           color="primary"
           class="mr-4"
           @click="validate"
         >
-        Validate
+          Validate
         </v-btn>
         <v-btn
           color="error"
@@ -36,9 +78,9 @@
         >
           Reset Form
         </v-btn>
-
         <v-btn
           color="warning"
+          class="mr-4"
           @click="resetValidation"
         >
           Reset Validation
@@ -46,16 +88,28 @@
        </v-form>
        </div>
     </v-container>
+    <UnitTesting />
   </div>
 </template>
 <script>
+  import UnitTesting from '../components/UnitTesting.vue'
+
 export default {
+  components: {
+    UnitTesting
+  },
   data: () => ({
       valid: true,
-      name: '',
       nameRules: [
-        v => !!v || 'Name is required',
-        v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+        v => !!v || 'Du må skrive inn navnet ditt',
+        v => (v && v.length <= 10) || 'For langt navn!',
+      ],
+      ageRules: [
+        v => (v && v.length <= 2) || 'Du er ikke så gammel!',
+      ], 
+      emailRules: [
+        v => !!v || 'Du må skrive inn en e-post',
+        v => /.+@.+/.test(v) || 'Skriv inn en gyldig e-post',
       ]
       }),
     methods: {
@@ -67,7 +121,7 @@ export default {
       },
       resetValidation () {
         this.$refs.form.resetValidation()
-      },
+      }
     }
 }
 </script>

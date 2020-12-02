@@ -71,16 +71,39 @@
           </v-card-text>
         </v-card>
      </v-container>
+     <v-container>
+      <img src="../../public/like.png">     
+      <div class="code-sample">
+        <h1>Likerklikk: {{likes}}</h1>
+        <v-btn v-on:click="like" class="primary like-btn">LIKE</v-btn>
+      </div>
+     </v-container>
     </v-container>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Intro"
+  name: "Intro",
+  data(){
+    return{
+      likes: 0
+    }
+  },
+  methods: {
+    like: function(){
+      this.likes++
+    }
+  }
 }
 </script>
 <style>
+.like-btn{
+  margin-block-start: 0%;
+}
+img{
+  float: left;
+}
 .color{
    color: var(--v-textcolor-base) !important;
 }

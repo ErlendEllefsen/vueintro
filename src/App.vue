@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import MainPage from './components/MainPage';
+import MainPage from './components/MainPage'
 
 export default {
   name: 'App',
@@ -84,7 +84,7 @@ export default {
   },
   methods: {
     darkMode() {
-      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
     }
   }
 };
@@ -94,15 +94,31 @@ export default {
 .code-container{
   width: 100%;
   height: 100%;
-  float: right;
+  float: left;
 }
 .code-sample{
   width: 40%;
+  height: 100%;
   float: left;
+  margin-left: 5%;
 }
 .code-ex{
   width: 40%;
+  height: 100%;
   float: left;
   margin-left: 10%;
+}
+@media (max-width: 1000px) {
+      .code-ex{
+            margin: 0;
+            width: 100%;
+       }
+       .code-sample{
+         margin: 0;
+         width: 100%;
+       }
+}
+.alert{
+    float: left;
 }
 </style>

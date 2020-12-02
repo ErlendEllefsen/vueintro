@@ -148,12 +148,10 @@ export default {
         this.eventTagName = event.target.tagName
       }
     },
-    // eslint-disable-next-line no-unused-vars
-    changeUpper: function (event) { 
+    changeUpper: function () { 
       this.$makeUpperCase('prop')
     },
-    // eslint-disable-next-line no-unused-vars
-    changeLower: function (event) { 
+    changeLower: function () { 
       this.$makeLowerCase('prop')
     }
   }
@@ -161,4 +159,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>
