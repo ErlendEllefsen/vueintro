@@ -1,7 +1,7 @@
 <template>
   <pre v-highlight class="language-javascript">
-            <code>{{code}}</code>
-        </pre>
+    <code>{{code}}</code>
+  </pre>
 </template>
 
 <script>
@@ -11,7 +11,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>

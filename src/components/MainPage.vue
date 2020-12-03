@@ -51,15 +51,6 @@
         step="6" 
         editable
         class="caption" 
-        @click="$router.push({path: '/memory'}).catch(err => {})" 
-      >
-      Memory
-      </v-stepper-step>
-      <v-divider></v-divider>
-      <v-stepper-step 
-        step="7" 
-        editable
-        class="caption" 
         @click="$router.push({path: '/storage'}).catch(err => {})" 
       >
       Storage
@@ -86,9 +77,6 @@
         <v-stepper-content step="6">
           <router-view />
         </v-stepper-content>
-        <v-stepper-content step="7">
-          <router-view />
-        </v-stepper-content>
       </div>
     </v-stepper-items>
   </v-stepper>
@@ -104,17 +92,13 @@
       }
     },
      created() {
-    this.getStepper()
+      this.getStepper()
   },
-
   methods: {
     getStepper() {
       const path = this.$route.path.split('/')
       if(path[path.length-1].toLowerCase() === 'your-router-path') {
         this.e1 = 1
-        // this.e1 = 1 = <v-stepper-step step="1" />
-        // this.e1 = 2 = <v-stepper-step step="2" />
-        // and so on.
       }
     }
   }

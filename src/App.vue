@@ -83,10 +83,21 @@ export default {
     }
   },
   methods: {
-    darkMode() {
-      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+        darkMode: function () {
+            this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+            localStorage.setItem("dark_theme", this.$vuetify.theme.dark.toString());
+        }
+    },
+    mounted() {
+        const theme = localStorage.getItem("dark_theme");
+        if (theme) {
+            if (theme == "true") {
+                this.$vuetify.theme.dark = true;
+            } else {
+                this.$vuetify.theme.dark = false;
+            }
+        }
     }
-  }
 };
 </script>
 

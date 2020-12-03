@@ -26,11 +26,11 @@ describe('ButtonTest.vue', () => {
           Test
       </v-btn>
        <h1>{{test}}</h1>
+       <img src="../../public/test.png">
         </div>
     </v-container> 
   </div>
 </template>
-
 <script>
 import Code from '../views/common/Code.vue'
 export default {

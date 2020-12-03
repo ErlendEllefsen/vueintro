@@ -66,15 +66,7 @@ methods: {
      </div>
      <div class="code-ex">
        <h1>Hente data fra API</h1>
-        <div>
-        <v-btn color="primary" v-on:click="getInfo">Hent data</v-btn>
-        <v-data-table
-          :headers="headers"
-          :items="usernames"
-          :items-per-page="4"
-          class="elevation-1 my-3"
-        ></v-data-table>
-      </div>
+        <Table />
      </div>
     </v-container>
      <v-container class="code-container">
@@ -109,41 +101,23 @@ changeLower: function (event) {
 </template>
 
 <script>
-import Code from '../views/common/Code.vue'
+import Code from './common/Code.vue'
+import Table from './common/Table.vue'
 export default {
   name: 'Instance',
   components: {
-    Code
+    Code,
+    Table
   },
   data(){
     return{
       appName : this.$AppName,
       appNameDisplay : '<p>Appen heter: {{appName}}</p>',
-      headers: [
-          {
-            text: 'Username',
-            align: 'start',
-            value: 'username',
-          },
-          { text: 'Name', value: 'name' },
-          { text: 'E-mail', value: 'email' }
-        ],
-      usernames : [],
       eventTagName : '',
       prop : 'Do ut aliqua eu anim elit incididunt adipisicing commodo. Voluptate laborum pariatur aliquip sint anim ullamco veniam qui sint quis sit commodo qui fugiat. Ullamco aliqua fugiat amet commodo ea nisi cillum quis. Deserunt ex exercitation nulla labore ea incididunt cupidatat consectetur eu commodo. Nulla aliquip aute et dolore pariatur nisi.Nisi ex incididunt aliqua ex est sint magna quis deserunt proident. Qui commodo ex officia anim aute aliquip excepteur quis. Officia tempor do exercitation ex aliquip velit quis veniam et enim et dolor aliqua. Est consequat laboris minim dolore aute. Est anim anim proident dolore. Exercitation sit cupidatat exercitation duis deserunt fugiat est.'
     }
   },
-  methods: {
-    getInfo: function (event) {
-      const baseURI = 'https://jsonplaceholder.typicode.com/users'
-      this.$http.get(baseURI)
-      .then((result) => {
-        this.usernames = result.data
-      })
-      if(event){
-        this.eventTagName = event.target.tagName
-      }
-    },
+  methods:{
     changeUpper: function () { 
       this.$makeUpperCase('prop')
     },
