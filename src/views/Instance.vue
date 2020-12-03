@@ -2,15 +2,13 @@
   <div class="instance">
 
     <v-container class="code-container">
-     <div v-highlight class="code-sample">
-      <pre class="language-javascript">
-        <code>
+     <div class="code-sample">
+       <Code code="
 /* main.js */
 import Vue from 'vue'
 import App from './App.vue'
 
-Vue.prototype.$AppName = 'VueCrashCourse'</code>
-      </pre>
+Vue.prototype.$AppName = 'VueCrashCourse'"/>
      </div>
      <div class="code-ex">
        <h1>Globale verdier</h1>
@@ -28,9 +26,8 @@ Vue.prototype.$AppName = 'VueCrashCourse'</code>
      </div>
     </v-container>
     <v-container class="code-container">
-     <div v-highlight class="code-sample">
-      <pre class="language-javascript">
-        <code> 
+     <div class="code-sample">
+      <Code code="
 /* Instance.vue */        
 export default {
    data(){
@@ -38,8 +35,7 @@ export default {
         appName : this.$AppName
      }
    }
-}</code>
-      </pre>
+}"/>
      </div>
      <div class="code-ex">
        <h1>Hente globale verdier</h1>
@@ -49,9 +45,8 @@ export default {
      </div>
     </v-container>
     <v-container class="code-container">
-     <div v-highlight class="code-sample">
-      <pre class="language-javascript">
-        <code>
+     <div class="code-sample">
+      <Code code="
 /*main.js*/
 Vue.prototype.$http = axios
 
@@ -67,8 +62,7 @@ methods: {
       this.eventTagName = event.target.tagName
     }
   }
-}</code>
-      </pre>
+}"/>
      </div>
      <div class="code-ex">
        <h1>Hente data fra API</h1>
@@ -84,9 +78,8 @@ methods: {
      </div>
     </v-container>
      <v-container class="code-container">
-     <div v-highlight class="code-sample">
-      <pre class="language-javascript">
-        <code>
+     <div class="code-sample">
+      <Code code="
 /*main.js*/
 Vue.prototype.$makeUpperCase = function(prop) {
   this[prop] = this[prop].toUpperCase()
@@ -102,8 +95,7 @@ changeUpper: function (event) {
 },
 changeLower: function (event) { 
   this.$makeLowerCase('prop')
-}</code>
-      </pre>
+}"/>
      </div>
      <div class="code-ex">
        <h1>Metoder</h1>
@@ -117,8 +109,12 @@ changeLower: function (event) {
 </template>
 
 <script>
+import Code from '../views/common/Code.vue'
 export default {
   name: 'Instance',
+  components: {
+    Code
+  },
   data(){
     return{
       appName : this.$AppName,

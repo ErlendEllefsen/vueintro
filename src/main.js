@@ -23,7 +23,7 @@ Vue.prototype.$AppName = 'VueCrashCourse'
 Vue.prototype.$Author = 'Erlend Ellefsen'
 Vue.prototype.$http = axios
 
-
+Vue.use(vuetify)
 new Vue({
   router,
   store,

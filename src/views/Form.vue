@@ -1,9 +1,8 @@
 <template>
   <div class="form">
       <v-container class="code-container">
-     <div v-highlight class="code-sample">
-      <pre class="language-javascript">
-        <code>
+     <div class="code-sample">
+      <Code code="
 export default {
   data: () => ({
       valid: true,
@@ -30,8 +29,7 @@ export default {
         this.$refs.form.resetValidation()
       },
     }
-}</code>
-      </pre>
+}"/>
      </div>
      <div class="code-ex">
        <h1>Form Validation</h1>
@@ -87,21 +85,20 @@ export default {
           Reset Validation
       </v-btn>
      
-      <h3>Navn: {{name}}</h3>
-      <h3>Alder: {{number}}</h3>
-      <h3>E-post: {{email}}</h3>
+      <h3 class="my-5">Navn: {{name}}</h3>
+      <h3 class="my-5">Alder: {{number}}</h3>
+      <h3 class="my-5">E-post: {{email}}</h3>
        </v-form>
        </div>
     </v-container>
-    <UnitTesting />
+
   </div>
 </template>
 <script>
-  import UnitTesting from '../components/UnitTesting.vue'
-
+import Code from '../views/common/Code.vue'
 export default {
-  components: {
-    UnitTesting
+  components:{
+    Code
   },
   data: () => ({
       valid: true,

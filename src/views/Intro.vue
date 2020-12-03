@@ -2,7 +2,7 @@
   <div>
     <v-container>
       <v-container class="d-flex justify-center mb-6">
-        <h1 class="header">Introduksjon</h1>
+        <h1 class="header" id="header">Introduksjon</h1>
       </v-container>
     <v-container class="d-flex justify-center justify-space-between text-center">
         <v-card class="intro-card primary" elevation="10">
